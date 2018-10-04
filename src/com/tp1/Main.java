@@ -4,6 +4,12 @@ import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
+        if (args.length != 1) {
+            System.out.println("Numero de passos não especificado");
+            System.exit(1);
+            return;
+        }
+        int stepLimit = Integer.parseInt(args[0]);
 
         int[][] result;
 
@@ -16,9 +22,9 @@ public class Main {
         Chessboard c = new Chessboard();
         c.setLayout(null);
 
-        result = h.run();
-        for(int i = 0; i < 8; i += 1){
-            for(int j = 0; j < 8; j += 1) {
+        result = h.run(stepLimit);
+        for (int i = 0; i < 8; i += 1) {
+            for (int j = 0; j < 8; j += 1) {
                 System.out.print(result[i][j]);
                 System.out.print(" ");
             }
